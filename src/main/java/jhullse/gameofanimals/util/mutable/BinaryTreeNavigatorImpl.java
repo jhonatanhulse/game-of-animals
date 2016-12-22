@@ -26,6 +26,11 @@ public class BinaryTreeNavigatorImpl implements BinaryTreeNavigator {
     }
 
     @Override
+    public BinaryTreeNode getCurrent() {
+        return current;
+    }
+
+    @Override
     public BinaryTreeNode next(boolean isLeftChild) {
         if (current != null) {
             if (isLeftChild) {

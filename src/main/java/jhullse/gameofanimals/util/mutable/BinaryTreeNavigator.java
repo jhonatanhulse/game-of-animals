@@ -6,6 +6,8 @@ public interface BinaryTreeNavigator {
 
     BinaryTreeNode getRoot();
 
+    BinaryTreeNode getCurrent();
+
     BinaryTreeNode next(boolean isLeftChild);
 
     void rewind();

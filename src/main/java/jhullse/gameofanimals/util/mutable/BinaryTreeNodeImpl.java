@@ -1,38 +1,38 @@
-package jhullse.gameofanimals.util;
+package jhullse.gameofanimals.util.mutable;
 
-public class MutableBinaryTreeNodeImpl implements MutableBinaryTreeNode {
+public class BinaryTreeNodeImpl implements BinaryTreeNode {
 
     private static String NODE_DOES_NOT_ALLOW_CHILDREN_MSG = "node does not allow children";
 
-    private MutableBinaryTreeNode parent;
+    private BinaryTreeNode parent;
 
     private boolean allowsChildren;
 
-    private MutableBinaryTreeNode leftChild;
+    private BinaryTreeNode leftChild;
 
-    private MutableBinaryTreeNode rightChild;
+    private BinaryTreeNode rightChild;
 
     private Object object;
 
-    public MutableBinaryTreeNodeImpl() {
+    public BinaryTreeNodeImpl() {
         this(null, true);
     }
 
-    public MutableBinaryTreeNodeImpl(Object object) {
+    public BinaryTreeNodeImpl(Object object) {
         this(object, true);
     }
 
-    public MutableBinaryTreeNodeImpl(boolean allowsChildren) {
+    public BinaryTreeNodeImpl(boolean allowsChildren) {
         this(null, allowsChildren);
     }
 
-    public MutableBinaryTreeNodeImpl(Object object, boolean allowsChildren) {
+    public BinaryTreeNodeImpl(Object object, boolean allowsChildren) {
         this.object = object;
         this.allowsChildren = allowsChildren;
     }
 
     @Override
-    public void setParent(MutableBinaryTreeNode parent) {
+    public void setParent(BinaryTreeNode parent) {
         if (parent != null && !parent.allowsChildren()) {
             throw new IllegalStateException("parent " + NODE_DOES_NOT_ALLOW_CHILDREN_MSG);
         }
@@ -41,7 +41,7 @@ public class MutableBinaryTreeNodeImpl implements MutableBinaryTreeNode {
     }
 
     @Override
-    public MutableBinaryTreeNode getParent() {
+    public BinaryTreeNode getParent() {
         return parent;
     }
 
@@ -51,7 +51,7 @@ public class MutableBinaryTreeNodeImpl implements MutableBinaryTreeNode {
     }
 
     @Override
-    public void remove(MutableBinaryTreeNode child) {
+    public void remove(BinaryTreeNode child) {
         if (allowsChildren) {
             if (leftChild == child) {
                 leftChild = null;
@@ -76,7 +76,7 @@ public class MutableBinaryTreeNodeImpl implements MutableBinaryTreeNode {
     }
 
     @Override
-    public void setLeftChild(MutableBinaryTreeNode leftChild) {
+    public void setLeftChild(BinaryTreeNode leftChild) {
         if (!allowsChildren) {
             throw new IllegalStateException(NODE_DOES_NOT_ALLOW_CHILDREN_MSG);
         }
@@ -87,12 +87,12 @@ public class MutableBinaryTreeNodeImpl implements MutableBinaryTreeNode {
     }
 
     @Override
-    public MutableBinaryTreeNode getLeftChild() {
+    public BinaryTreeNode getLeftChild() {
         return leftChild;
     }
 
     @Override
-    public void setRightChild(MutableBinaryTreeNode rightChild) {
+    public void setRightChild(BinaryTreeNode rightChild) {
         if (!allowsChildren) {
             throw new IllegalStateException(NODE_DOES_NOT_ALLOW_CHILDREN_MSG);
         }
@@ -103,7 +103,7 @@ public class MutableBinaryTreeNodeImpl implements MutableBinaryTreeNode {
     }
 
     @Override
-    public MutableBinaryTreeNode getRightChild() {
+    public BinaryTreeNode getRightChild() {
         return rightChild;
     }
 

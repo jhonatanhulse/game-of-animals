@@ -1,32 +1,32 @@
-package jhullse.gameofanimals.util;
+package jhullse.gameofanimals.util.mutable;
 
-public class MutableBinaryTreeNavigatorImpl implements MutableBinaryTreeNavigator {
+public class BinaryTreeNavigatorImpl implements BinaryTreeNavigator {
 
-    private MutableBinaryTreeNode root;
+    private BinaryTreeNode root;
 
-    private MutableBinaryTreeNode current;
+    private BinaryTreeNode current;
 
-    public MutableBinaryTreeNavigatorImpl() {
+    public BinaryTreeNavigatorImpl() {
         this(null);
     }
 
-    public MutableBinaryTreeNavigatorImpl(MutableBinaryTreeNode root) {
+    public BinaryTreeNavigatorImpl(BinaryTreeNode root) {
         setRoot(root);
     }
 
     @Override
-    public void setRoot(MutableBinaryTreeNode root) {
+    public void setRoot(BinaryTreeNode root) {
         this.root = root;
         rewind();
     }
 
     @Override
-    public MutableBinaryTreeNode getRoot() {
+    public BinaryTreeNode getRoot() {
         return root;
     }
 
     @Override
-    public MutableBinaryTreeNode next(boolean isLeftChild) {
+    public BinaryTreeNode next(boolean isLeftChild) {
         if (current != null) {
             if (isLeftChild) {
                 current = current.getLeftChild();

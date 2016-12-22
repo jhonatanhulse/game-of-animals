@@ -1,22 +1,22 @@
-package jhullse.gameofanimals.util;
+package jhullse.gameofanimals.util.mutable;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class MutableBinaryTreeNodeImplTest {
+public class BinaryTreeNodeImplTest {
 
     @Test(expected = IllegalStateException.class)
     public void setParent_Should_ThrowIllegalStateException_When_ParentDoesNotAllowChildren() {
-        MutableBinaryTreeNodeImpl parent = new MutableBinaryTreeNodeImpl(false);
-        MutableBinaryTreeNodeImpl child =  new MutableBinaryTreeNodeImpl();
+        BinaryTreeNodeImpl parent = new BinaryTreeNodeImpl(false);
+        BinaryTreeNodeImpl child =  new BinaryTreeNodeImpl();
 
         child.setParent(parent);
     }
 
     @Test
     public void isRoot_Should_BeFalse_When_ChildHasParent() {
-        MutableBinaryTreeNodeImpl parent = new MutableBinaryTreeNodeImpl();
-        MutableBinaryTreeNodeImpl child = new MutableBinaryTreeNodeImpl();
+        BinaryTreeNodeImpl parent = new BinaryTreeNodeImpl();
+        BinaryTreeNodeImpl child = new BinaryTreeNodeImpl();
 
         child.setParent(parent);
 
@@ -25,24 +25,24 @@ public class MutableBinaryTreeNodeImplTest {
 
     @Test
     public void isRoot_Should_BeTrue_When_ChildHasNoParent() {
-        MutableBinaryTreeNodeImpl child = new MutableBinaryTreeNodeImpl();
+        BinaryTreeNodeImpl child = new BinaryTreeNodeImpl();
 
         Assert.assertTrue(child.isRoot());
     }
 
     @Test(expected = IllegalStateException.class)
     public void setLeftChild_Should_ThrowIllegalStateException_When_ParentDoesNotAllowChildren() {
-        MutableBinaryTreeNodeImpl parent = new MutableBinaryTreeNodeImpl(false);
-        MutableBinaryTreeNodeImpl child = new MutableBinaryTreeNodeImpl();
+        BinaryTreeNodeImpl parent = new BinaryTreeNodeImpl(false);
+        BinaryTreeNodeImpl child = new BinaryTreeNodeImpl();
 
         parent.setLeftChild(child);
     }
 
     @Test
     public void setLeftChild_Should_RemoveOldParentFromChild_And_UpdateNewParent() {
-        MutableBinaryTreeNodeImpl oldParent = new MutableBinaryTreeNodeImpl();
-        MutableBinaryTreeNodeImpl child = new MutableBinaryTreeNodeImpl();
-        MutableBinaryTreeNodeImpl newParent = new MutableBinaryTreeNodeImpl();
+        BinaryTreeNodeImpl oldParent = new BinaryTreeNodeImpl();
+        BinaryTreeNodeImpl child = new BinaryTreeNodeImpl();
+        BinaryTreeNodeImpl newParent = new BinaryTreeNodeImpl();
 
         oldParent.setLeftChild(child);
 
@@ -59,17 +59,17 @@ public class MutableBinaryTreeNodeImplTest {
 
     @Test(expected = IllegalStateException.class)
     public void setRightChild_Should_ThrowIllegalStateException_When_ParentDoesNotAllowChildren() {
-        MutableBinaryTreeNodeImpl parent = new MutableBinaryTreeNodeImpl(false);
-        MutableBinaryTreeNodeImpl child = new MutableBinaryTreeNodeImpl();
+        BinaryTreeNodeImpl parent = new BinaryTreeNodeImpl(false);
+        BinaryTreeNodeImpl child = new BinaryTreeNodeImpl();
 
         parent.setRightChild(child);
     }
 
     @Test
     public void setRightChild_Should_RemoveOldParentFromChild_And_UpdateNewParent() {
-        MutableBinaryTreeNodeImpl oldParent = new MutableBinaryTreeNodeImpl();
-        MutableBinaryTreeNodeImpl child = new MutableBinaryTreeNodeImpl();
-        MutableBinaryTreeNodeImpl newParent = new MutableBinaryTreeNodeImpl();
+        BinaryTreeNodeImpl oldParent = new BinaryTreeNodeImpl();
+        BinaryTreeNodeImpl child = new BinaryTreeNodeImpl();
+        BinaryTreeNodeImpl newParent = new BinaryTreeNodeImpl();
 
         oldParent.setRightChild(child);
 
@@ -86,23 +86,23 @@ public class MutableBinaryTreeNodeImplTest {
 
     @Test
     public void isLeaf_Should_BeTrue_When_NodeDoesNotAllowChildren() {
-        MutableBinaryTreeNodeImpl node = new MutableBinaryTreeNodeImpl(false);
+        BinaryTreeNodeImpl node = new BinaryTreeNodeImpl(false);
 
         Assert.assertTrue(node.isLeaf());
     }
 
     @Test
     public void isLeaf_Should_BeTrue_When_NodeAllowChildren_And_NodeHasNoChildren() {
-        MutableBinaryTreeNodeImpl node = new MutableBinaryTreeNodeImpl();
+        BinaryTreeNodeImpl node = new BinaryTreeNodeImpl();
 
         Assert.assertTrue(node.isLeaf());
     }
 
     @Test
     public void isLeaf_Should_BeFalse_When_NodeHasChildren() {
-        MutableBinaryTreeNodeImpl parent = new MutableBinaryTreeNodeImpl();
-        MutableBinaryTreeNodeImpl leftChild = new MutableBinaryTreeNodeImpl();
-        MutableBinaryTreeNodeImpl rightChild = new MutableBinaryTreeNodeImpl();
+        BinaryTreeNodeImpl parent = new BinaryTreeNodeImpl();
+        BinaryTreeNodeImpl leftChild = new BinaryTreeNodeImpl();
+        BinaryTreeNodeImpl rightChild = new BinaryTreeNodeImpl();
 
         parent.setLeftChild(leftChild);
         Assert.assertFalse(parent.isLeaf());
@@ -124,7 +124,7 @@ public class MutableBinaryTreeNodeImplTest {
         Object oldObject = new Object();
         Object newObject = new Object();
 
-        MutableBinaryTreeNodeImpl node = new MutableBinaryTreeNodeImpl(oldObject);
+        BinaryTreeNodeImpl node = new BinaryTreeNodeImpl(oldObject);
         Assert.assertEquals(node.getObject(), oldObject);
 
         node.setObject(newObject);

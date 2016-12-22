@@ -1,13 +1,9 @@
 package jhullse.gameofanimals.util;
 
-import java.beans.Transient;
-
 public interface MutableBinaryTreeNode {
 
-    @Transient
     void setParent(MutableBinaryTreeNode parent);
 
-    @Transient
     MutableBinaryTreeNode getParent();
 
     boolean isRoot();

@@ -8,6 +8,8 @@ public interface MutableBinaryTreeNode {
 
     boolean isRoot();
 
+    void remove(MutableBinaryTreeNode child);
+
     void removeFromParent();
 
     boolean allowsChildren();

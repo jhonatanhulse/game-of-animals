@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'jacoco'
+
+repositories {
+    jcenter()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'jhullse.gameofanimals.ConsoleApp'
+        )
+    }
+}
+
+jacocoTestReport {
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        csv.enabled = true
+    }
+
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [ '**/*ConsoleApp**' ])
+        })
+    }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.+'
+}

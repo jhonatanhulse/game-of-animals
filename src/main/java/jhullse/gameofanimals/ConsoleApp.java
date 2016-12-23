@@ -7,7 +7,7 @@ import jhullse.gameofanimals.util.mutable.BinaryTreeNavigatorImpl;
 import jhullse.gameofanimals.util.mutable.BinaryTreeNode;
 import jhullse.gameofanimals.util.mutable.BinaryTreeNodeImpl;
 
-public class App {
+public class ConsoleApp {
 
     public static void main(String[] args) {
         BinaryTreeNode parent = new BinaryTreeNodeImpl("vive na água");

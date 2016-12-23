@@ -6,6 +6,15 @@ repositories {
     jcenter()
 }
 
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'jhullse.gameofanimals.ConsoleApp'
+        )
+    }
+}
+
 jacocoTestReport {
     reports {
         html.enabled = true
